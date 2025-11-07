@@ -13,7 +13,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 from pathlib import Path
-
+import dj_database_url
 # Your secret key
 SECRET_KEY = env("SECRET_KEY")
 
@@ -97,18 +97,24 @@ WSGI_APPLICATION = 'ByteBank.wsgi.application'
 ...
 
 ...
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://bytebank_kwcd_user:wtwoBhDkM8fBoUfD0CvFnPlmoi11lpOP@dpg-d46p9eogjchc73ekcvr0-a.oregon-postgres.render.com/bytebank_kwcd',
+
+    )
 }
-
-
 
 
 
