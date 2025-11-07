@@ -1,0 +1,50 @@
+<nav class="bg-white shadow-md">
+  <div class="w-full">
+    <div class="flex justify-between items-center h-16 px-4">
+      
+      <!-- Left side: Byte Bank -->
+      <div class="flex-none w-48">
+        <a href="/" class="text-2xl font-semibold text-blue-900 no-underline">Byte Bank</a>
+      </div>
+
+      <!-- Center: Navigation links -->
+      {% if request.user.is_authenticated %}
+      <div class="flex-1 flex justify-center">
+        <div class="flex items-center gap-8">
+          <a href="{% url 'transaction_report' %}" class="text-blue-900 hover:text-red-900 hover:font-semibold no-underline">Report</a>
+          <a href="{% url 'deposit_money' %}" class="text-blue-900 hover:text-red-900 hover:font-semibold no-underline">Deposit</a>
+          <a href="{% url 'withdraw_money' %}" class="text-blue-900 hover:text-red-900 hover:font-semibold no-underline">Withdraw</a>
+          <a href="{% url 'loan_request' %}" class="text-blue-900 hover:text-red-900 hover:font-semibold no-underline">Loan Request</a>
+          <a href="{% url 'transfer_money' %}" class="text-blue-900 hover:text-red-900 hover:font-semibold no-underline">Transfer Money</a>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Right side: User info and buttons -->
+      <div class="flex-none w-96">
+        <div class="flex items-center gap-4 justify-end">
+          {% if request.user.is_authenticated %}
+            <span class="text-blue-900 font-semibold whitespace-nowrap">
+              Welcome, {{ request.user.first_name }} (balance: {{ request.user.account.balance }})
+            </span>
+            <a href="{% url 'profile' %}" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-red-700 no-underline text-sm font-medium whitespace-nowrap">
+              Profile
+            </a>
+            <form method="POST" action="{% url 'logout' %}" class="inline">
+              {% csrf_token %}
+              <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-red-700 no-underline text-sm font-medium whitespace-nowrap">
+                Logout
+              </button>
+            </form>
+          {% else %}
+            <div class="flex items-center gap-2">
+              <a href="{% url 'login' %}" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-red-700 no-underline text-sm font-medium">Login</a>
+              <a href="{% url 'register' %}" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-red-700 no-underline text-sm font-medium">Register</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>

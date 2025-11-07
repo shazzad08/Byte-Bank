@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Approved | ByteBank</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2e7d32;
+    }
+    p {
+      color: #333333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .highlight {
+      background-color: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 5px;
+      padding: 12px;
+      margin-top: 15px;
+    }
+    .footer {
+      text-align: center;
+      color: #888888;
+      font-size: 13px;
+      margin-top: 25px;
+      border-top: 1px solid #eeeeee;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Congratulations, {{ user.first_name }}!</h2>
+
+    <p>Your loan request for <strong>${{ amount }}</strong> has been <strong>approved</strong>.</p>
+
+    <div class="highlight">
+      <p><strong>Total Account Balance:</strong> ${{ user.account.balance }}</p>
+    </div>
+
+    <p>Thank you for choosing <strong>ByteBank</strong>. We’re always here to support your financial goals.</p>
+
+    <p>Best regards,<br><strong>ByteBank Team</strong></p>
+
+    <div class="footer">
+      &copy; {{ year }} ByteBank Inc. | Automated Message — Please Do Not Reply
+    </div>
+  </div>
+</body>
+</html>

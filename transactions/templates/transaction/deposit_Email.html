@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Transaction Notification | ByteBank</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .email-header {
+      background-color: #0044cc;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .email-header h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    .email-body {
+      padding: 30px 40px;
+      color: #333333;
+      line-height: 1.6;
+    }
+    .email-body h2 {
+      color: #0044cc;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .email-body p {
+      margin: 10px 0;
+    }
+    .email-footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 13px;
+      color: #777777;
+    }
+    .balance-box {
+      background-color: #f9fbff;
+      border: 1px solid #dde3f0;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <h1>ByteBank</h1>
+    </div>
+    <div class="email-body">
+      <h2>Hello {{user.first_name}} {{user.last_name}},</h2>
+      <p>
+        We’re pleased to inform you that your 
+        <strong>{{transaction_type}}</strong> request for 
+        <strong>${{amount}}</strong> has been successfully processed.
+      </p>
+      <div class="balance-box">
+        <p><strong>Current Account Balance:</strong> ${{user.account.balance}}</p>
+      </div>
+      <p>
+        Thank you for choosing <strong>ByteBank</strong>. We appreciate your continued trust and look forward to serving you again.
+      </p>
+      <p>Warm regards,<br><strong>The ByteBank Team</strong></p>
+    </div>
+    <div class="email-footer">
+      &copy; {{year}} ByteBank Inc. | All rights reserved<br>
+      This is an automated message—please do not reply.
+    </div>
+  </div>
+</body>
+</html>

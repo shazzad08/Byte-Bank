@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Request Confirmation | ByteBank</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .email-header {
+      background-color: #1976d2;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .email-header h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    .email-body {
+      padding: 30px 40px;
+      color: #333333;
+      line-height: 1.6;
+    }
+    .email-body h2 {
+      color: #1976d2;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .email-body p {
+      margin: 10px 0;
+    }
+    .loan-details-box {
+      background-color: #e8f0fe;
+      border: 1px solid #c5d9f9;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .email-footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 13px;
+      color: #777777;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <h1>ByteBank</h1>
+    </div>
+    <div class="email-body">
+      <h2>Hello {{user.first_name}} {{user.last_name}},</h2>
+      <p>
+        We have received your <strong>loan request</strong> for <strong>${{amount}}</strong>.
+      </p>
+      <div class="loan-details-box">
+        <p><strong>Loan Amount Requested:</strong> ${{amount}}</p>
+        <p><strong>Loan Term:</strong> 24 months</p>
+        <p><strong>Interest Rate:</strong> 8 %</p>
+        <p><strong>Current Account Balance:</strong> ${{user.account.balance}}</p>
+      </div>
+      <p>
+        Your request is now under review. You will receive another email once your loan has been approved or if additional information is required.
+      </p>
+      <p>
+        Thank you for trusting <strong>ByteBank</strong> for your financial needs.
+      </p>
+      <p>Warm regards,<br><strong>The ByteBank Team</strong></p>
+    </div>
+    <div class="email-footer">
+      &copy; {{year}} ByteBank Inc. | All rights reserved<br>
+      This is an automated message — please do not reply.
+    </div>
+  </div>
+</body>
+</html>

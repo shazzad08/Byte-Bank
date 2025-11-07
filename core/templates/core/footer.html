@@ -1,0 +1,59 @@
+<footer class="bg-gray-900 text-white">
+  <!-- Section: Links -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company column -->
+        <div>
+          <h6 class="text-lg font-bold uppercase">ByteBank</h6>
+          <div class="w-16 h-1 bg-indigo-500 my-4"></div>
+          <p class="mb-4">
+            Your trusted banking partner. We provide secure and innovative banking solutions for all your financial needs.
+          </p>
+        </div>
+
+        <!-- Products column -->
+        <div>
+          <h6 class="text-lg font-bold uppercase">Services</h6>
+          <div class="w-16 h-1 bg-indigo-500 my-4"></div>
+          <p class="mb-2"><a href="#" class="text-white hover:text-gray-300 no-underline">Online Banking</a></p>
+          <p class="mb-2"><a href="#" class="text-white hover:text-gray-300 no-underline">Mobile Banking</a></p>
+          <p class="mb-2"><a href="#" class="text-white hover:text-gray-300 no-underline">Loans</a></p>
+          <p class="mb-2"><a href="#" class="text-white hover:text-gray-300 no-underline">Investments</a></p>
+        </div>
+
+        <!-- Useful links column -->
+        <div>
+          <h6 class="text-lg font-bold uppercase">Quick Links</h6>
+          <div class="w-16 h-1 bg-indigo-500 my-4"></div>
+          {% if request.user.is_authenticated %}
+            <p class="mb-2"><a href="{% url 'profile' %}" class="text-white hover:text-gray-300 no-underline">Your Account</a></p>
+            <p class="mb-2"><a href="{% url 'transaction_report' %}" class="text-white hover:text-gray-300 no-underline">Transaction History</a></p>
+            <p class="mb-2"><a href="{% url 'deposit_money' %}" class="text-white hover:text-gray-300 no-underline">Transfer Money</a></p>
+          {% else %}
+            <p class="mb-2"><a href="{% url 'login' %}" class="text-white hover:text-gray-300 no-underline">Your Account</a></p>
+            <p class="mb-2"><a href="{% url 'login' %}" class="text-white hover:text-gray-300 no-underline">Transaction History</a></p>
+            <p class="mb-2"><a href="{% url 'login' %}" class="text-white hover:text-gray-300 no-underline">Transfer Money</a></p>
+          {% endif %}
+          <p class="mb-2"><a href="#" class="text-white hover:text-gray-300 no-underline">Help Center</a></p>
+        </div>
+
+        <!-- Contact column -->
+        <div>
+          <h6 class="text-lg font-bold uppercase">Contact</h6>
+          <div class="w-16 h-1 bg-indigo-500 my-4"></div>
+          <p class="mb-2"><i class="fas fa-home mr-2"></i> New York, NY 10012, US</p>
+          <p class="mb-2"><i class="fas fa-envelope mr-2"></i> info@bytebank.com</p>
+          <p class="mb-2"><i class="fas fa-phone mr-2"></i> + 01 234 567 88</p>
+          <p class="mb-2"><i class="fas fa-print mr-2"></i> + 01 234 567 89</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright -->
+  <div class="text-center p-4 bg-black bg-opacity-20">
+    © {% now "Y" %}:
+    <a class="text-white hover:text-gray-300 no-underline" href="#">ByteBank.com</a>
+  </div>
+</footer>
