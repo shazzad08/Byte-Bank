@@ -111,7 +111,8 @@ WSGI_APPLICATION = 'ByteBank.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://bytebank_kwcd_user:wtwoBhDkM8fBoUfD0CvFnPlmoi11lpOP@dpg-d46p9eogjchc73ekcvr0-a.oregon-postgres.render.com/bytebank_kwcd',
+        default='postgresql://byte_bank_user:WMuhR5PWtxKRFsFRUFOtyybzjrtgRhlA@dpg-d46u2h3ipnbc73f6c9q0-a.oregon-postgres.render.com/byte_bank'
+        ,
 
     )
 }
