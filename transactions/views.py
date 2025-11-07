@@ -224,7 +224,7 @@ class LoanListView(LoginRequiredMixin,ListView):
 class TransferView(LoginRequiredMixin, FormView):
     template_name = 'transaction/transfer.html'
     form_class = TransferForm
-    success_url = reverse_lazy('transaction_report')
+    success_url = reverse_lazy('transfer_list')
 
     @transaction.atomic
     def form_valid(self, form):
