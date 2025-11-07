@@ -1,0 +1,15 @@
+# Ignore JavaScript libraries in static folders
+static/**/*.js linguist-vendored
+
+# Ignore minified JS/CSS files
+static/**/*.min.js linguist-vendored
+static/**/*.min.css linguist-vendored
+
+# Ignore node modules if you ever have them
+node_modules/** linguist-vendored
+
+# Ignore Django admin static files (JS, CSS)
+**/admin/static/** linguist-vendored
+
+# Ignore migration Python files (optional)
+**/migrations/** linguist-vendored
